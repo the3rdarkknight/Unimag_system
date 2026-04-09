@@ -2,14 +2,14 @@
 require "../includes/auth.php";
 require "../includes/db.php";
 
-// ─── Auth guard ───────────────────────────────────────────────────────────────
+
 if (!isset($_SESSION['user_id'])) {
     die("User not logged in.");
 }
 
 $userId = $_SESSION['user_id'];
 
-// ─── Fetch coordinator's faculty ──────────────────────────────────────────────
+//  Fetch coordinator's faculty 
 $stmtFaculty = $conn->prepare(
     "SELECT f.faculty_id, f.faculty_name
      FROM users u
@@ -28,7 +28,7 @@ if (!$facultyRow || $facultyRow['faculty_id'] === null) {
 $facultyId   = $facultyRow['faculty_id'];
 $facultyName = $facultyRow['faculty_name'];
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
+// Helpers 
 function daysSince(string $dateStr): float {
     return (time() - strtotime($dateStr)) / 86400;
 }
@@ -45,9 +45,7 @@ function popFlash(): array {
     return $msgs;
 }
 
-// ═════════════════════════════════════════════════════════════════════════════
-// PENDING LIST PAGE  (no ?id parameter)
-// ═════════════════════════════════════════════════════════════════════════════
+
 if (empty($_GET['id'])) {
 
     $stmtPending = $conn->prepare(
@@ -152,12 +150,10 @@ if (empty($_GET['id'])) {
     exit;
 }
 
-// ═════════════════════════════════════════════════════════════════════════════
-// SINGLE REVIEW PAGE  (?id=N)
-// ═════════════════════════════════════════════════════════════════════════════
+
 $contributionId = intval($_GET['id']);
 
-// ─── Handle POST ──────────────────────────────────────────────────────────────
+//  Handle POST 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Determine which action was submitted — only one branch runs (if-elseif).
@@ -170,7 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     switch ($action) {
 
-        // ── Comment ──────────────────────────────────────────────────────────
+        //Comment
         case 'comment':
             $comment = trim($_POST['comment'] ?? '');
 
@@ -229,7 +225,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmtComment->close();
             break;
 
-        // ── Select ───────────────────────────────────────────────────────────
+        //
         case 'select':
             $stmtSelect = $conn->prepare(
                 "UPDATE contributions SET status_id = 3
@@ -247,7 +243,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header("Location: selected.php");
             exit;
 
-        // ── Reject ───────────────────────────────────────────────────────────
+        //Reject
         case 'reject':
             $stmtReject = $conn->prepare(
                 "UPDATE contributions SET status_id = 4
@@ -274,7 +270,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-// ─── Fetch contribution ───────────────────────────────────────────────────────
+// Fetch contribution
 $stmtContrib = $conn->prepare(
     "SELECT c.contribution_id, c.title, c.description, c.document_path,
             c.submitted_at, cs.status_name, u.name AS student_name
@@ -292,7 +288,7 @@ if (!$contribution) {
     die("Contribution not found or access denied.");
 }
 
-// ─── Fetch images ─────────────────────────────────────────────────────────────
+// Fetch images
 $stmtImgs = $conn->prepare(
     "SELECT image_path FROM contribution_images WHERE contribution_id = ?"
 );
@@ -301,7 +297,7 @@ $stmtImgs->execute();
 $images = $stmtImgs->get_result()->fetch_all(MYSQLI_ASSOC);
 $stmtImgs->close();
 
-// ─── Fetch comments ───────────────────────────────────────────────────────────
+//  Fetch comments
 $stmtComments = $conn->prepare(
     "SELECT cm.comment_text, cm.created_at, u.name AS coordinator_name
      FROM comments cm
@@ -371,7 +367,7 @@ $age   = daysSince($contribution['submitted_at']);
             <div class="alert alert--error"><?= htmlspecialchars($flash['error']) ?></div>
         <?php endif; ?>
 
-        <!-- ── Contribution detail ─────────────────────────────────────── -->
+        <!--Contribution detail -->
         <div class="review-card">
             <h3><?= htmlspecialchars($contribution['title']) ?></h3>
             <p>
@@ -414,7 +410,7 @@ $age   = daysSince($contribution['submitted_at']);
                 </div>
             <?php endif; ?>
 
-            <!-- ── Action form ──────────────────────────────────────────── -->
+            <!--  Action form  -->
             <form method="POST" action="review.php?id=<?= $contributionId ?>" style="margin-top:20px;">
 
                 <?php if ($age > 14): ?>
@@ -445,7 +441,7 @@ $age   = daysSince($contribution['submitted_at']);
             </form>
         </div>
 
-        <!-- ── Comments history ───────────────────────────────────────── -->
+        <!-- Comments history  -->
         <div class="review-card" style="margin-top:20px;">
             <h3>Comments History</h3>
             <?php if ($comments): ?>

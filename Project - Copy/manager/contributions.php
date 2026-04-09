@@ -162,12 +162,9 @@ $contributions = $conn->query("
                         onclick="return confirm('Delete this contribution? This cannot be undone.')">
                             <i class="fa-solid fa-trash"></i> Delete
                         </a>
-                        <?php if (isset($_GET['deleted'])): ?>
-                            <div class="banner success" style="margin-bottom:16px;">
-                                <i class="fa-solid fa-circle-check"></i> Contribution deleted successfully.
-                            </div>
-                        <?php endif; ?>
+                       
                     </td>
+                    
                 
                 </tr>
                 <?php endwhile; ?>

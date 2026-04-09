@@ -116,10 +116,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             }
                         }
 
-                        // ── Email coordinator ──────────────────────────────────
-                        // Fires after everything saved. Fails silently if SMTP error.
+                        //  Email coordinator 
+                        // 
                         notifyCoordinator($contribution_id, $conn);
-                        // ──────────────────────────────────────────────────────
+                        //
 
                         $success = "Your contribution has been submitted successfully!";
                     }

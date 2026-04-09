@@ -9,15 +9,24 @@ if ($_SESSION['role'] != 4) {
 }
 
 // DELETE
+
+
 if (isset($_GET['delete'])) {
     $id = intval($_GET['delete']);
 
-    $stmt = $conn->prepare("DELETE FROM academic_years WHERE academic_year_id = ?");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
+    try {
+        $stmt = $conn->prepare("DELETE FROM academic_years WHERE academic_year_id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
 
-    header("Location: academic-years.php");
-    exit();
+        header("Location: academic-years.php?success=deleted");
+        exit();
+
+    } catch (mysqli_sql_exception $e) {
+
+        header("Location: academic-years.php?error=constraint");
+        exit();
+    }
 }
 
 // CREATE

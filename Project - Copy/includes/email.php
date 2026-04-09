@@ -29,9 +29,6 @@ $mailFrom     = $_ENV['MAIL_FROM']      ?? '';
 $mailFromName = $_ENV['MAIL_FROM_NAME'] ?? '';
 $mailPassword = $_ENV['MAIL_PASSWORD']  ?? '';
 
-// TEMP DEBUG — remove after confirming
-error_log("MAIL_FROM: " . $mailFrom);
-error_log("MAIL_PASS: " . (empty($mailPassword) ? 'EMPTY - not loaded!' : 'loaded OK'));
 
 /**
  * Base email sender.

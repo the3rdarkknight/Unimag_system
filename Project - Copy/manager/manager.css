@@ -1,0 +1,241 @@
+/* ── Variables ── */
+:root {
+  --accent:       #e8490f;
+  --accent-hover: #c73d0c;
+  --accent-light: rgba(232, 73, 15, 0.12);
+
+  --bg:           #1a1a1b;
+  --sidebar-bg:   #111112;
+  --card-bg:      #1a1c22;
+  --card-bg-2:    #2a2d36;
+  --input-bg:     #2a2d36;
+
+  --border:       #333334;
+  --text:         #f0f0f0;
+  --text-muted:   #9ca3af;
+
+  --green:        #10b981;
+  --orange:       #f59e0b;
+  --red:          #ef4444;
+}
+
+/* ── Base ── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 15px;
+}
+
+/* ── Topbar ── */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--sidebar-bg);
+  padding: 0 24px;
+  height: 60px;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar .logo {
+  color: var(--accent);
+  font-size: 1.6rem;
+  margin-right: 8px;
+}
+
+.topbar .title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.topbar .left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.btn.ghost:hover {
+  background-color: var(--accent-light);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ── Layout ── */
+.container {
+  display: flex;
+  margin-top: 60px;
+}
+
+/* ── Sidebar ── */
+aside.sidebar {
+  width: 220px;
+  background-color: var(--sidebar-bg);
+  padding: 24px 16px;
+  height: calc(100vh - 60px);
+  position: fixed;
+  top: 60px; left: 0;
+  overflow-y: auto;
+  border-right: 1px solid var(--border);
+}
+
+aside.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+  padding: 10px 14px;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+aside.sidebar a i {
+  width: 18px;
+  text-align: center;
+}
+
+aside.sidebar a:hover {
+  background-color: var(--accent-light);
+  color: var(--accent);
+}
+
+aside.sidebar a.active {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+/* ── Main Feed ── */
+main.feed {
+  margin-left: 240px;
+  padding: 28px 24px;
+  width: calc(100% - 240px);
+  min-height: calc(100vh - 60px);
+  background-color: var(--bg);
+}
+
+main.feed h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+/* ── Stats Grid ── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* ── Stat Card ── */
+.stat-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 12px 0 0 12px;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.stat-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+  padding-left: 8px;
+}
+
+.stat-card p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  padding-left: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-card p:first-of-type {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* ── Progress bar for percent selected ── */
+.stat-card .progress-wrap {
+  margin-top: 14px;
+  padding-left: 8px;
+}
+
+.stat-card .progress-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat-card .progress-bar {
+  height: 6px;
+  background: var(--card-bg-2);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.stat-card .progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 99px;
+  transition: width 0.6s ease;
+}

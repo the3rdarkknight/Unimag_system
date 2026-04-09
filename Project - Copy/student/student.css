@@ -1,0 +1,364 @@
+/* ── Variables (add if not already in this file) ── */
+:root {
+  --accent:       #e8490f;
+  --accent-hover: #c73d0c;
+  --accent-light: rgba(232, 73, 15, 0.12);
+
+  --bg:           #1a1a1b;
+  --card-bg:      #1a1c22;
+  --card-bg-2:    #2a2d36;
+  --input-bg:     #2a2d36;
+
+  --border:       #333334;
+  --text:         #f0f0f0;
+  --text-muted:   #9ca3af;
+
+  --green:        #10b981;
+  --orange:       #f59e0b;
+  --red:          #ef4444;
+}
+
+/* ── Page Title ── */
+.page-title {
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* ── Info Banner ── */
+.info-banner {
+  background: var(--card-bg-2);
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid var(--accent);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ── Dashboard Cards ── */
+.dashboard-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.dash-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  flex: 1;
+  min-width: 180px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  border: 1px solid var(--border);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dash-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.dash-card i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.dash-card .stat-number {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+
+.dash-card .stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Section Title ── */
+.section-title {
+  margin: 24px 0 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ── Data Table ── */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.data-table th,
+.data-table td {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.data-table th {
+  background-color: #1e1e1f;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.data-table td {
+  color: var(--text);
+}
+
+.data-table tbody tr:hover {
+  background-color: var(--accent-light);
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ── Badges ── */
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.badge.pending {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid #f59e0b;
+}
+
+.badge.approved,
+.badge.selected {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid #10b981;
+}
+
+.badge.rejected {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid #ef4444;
+}
+
+/* ── Submit Card (contribution form) ── */
+.submit-card {
+  background: var(--card-bg);
+  padding: 28px;
+  border-radius: 12px;
+  max-width: 700px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.submit-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.submit-card label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  display: block;
+}
+
+.submit-card input,
+.submit-card textarea,
+.submit-card select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: var(--input-bg);
+  color: var(--text);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.submit-card input:focus,
+.submit-card textarea:focus,
+.submit-card select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(232, 73, 15, 0.15);
+}
+
+.submit-card select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239ca3af' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+.submit-card select option {
+  background-color: #1e1e1f;
+  color: #f0f0f0;
+}
+
+.submit-card textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* ── Terms Card ── */
+.terms-card {
+  background: var(--card-bg);
+  padding: 28px;
+  border-radius: 12px;
+  line-height: 1.8;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.terms-card h2,
+.terms-card h3 {
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.terms-card p {
+  margin-bottom: 14px;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+.btn.primary {
+  background-color: var(--green);
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background-color: #059669;
+}
+
+.btn.danger {
+  background-color: var(--red);
+  color: #fff;
+}
+
+.btn.danger:hover {
+  background-color: #ff4500;
+}
+
+.btn.ghost {
+  background: rgb(189, 55, 55);
+  color: white;
+  border: 1px solid var(--border);
+}
+
+.btn.ghost:hover {
+  background-color: var(--accent-light);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn.small {
+  padding: 5px 12px;
+  font-size: 0.8rem;
+  border-radius: 6px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .dashboard-cards {
+    flex-direction: column;
+  }
+
+  .submit-card {
+    padding: 20px;
+  }
+}
+/* ── Checkbox fix ── */
+.submit-card .checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.submit-card .checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;        /* prevents it from being squished */
+  padding: 0;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+  appearance: auto;       /* overrides the global appearance:none */
+  -webkit-appearance: auto;
+  border: none;
+  background: none;
+}
+
+.submit-card .checkbox a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.submit-card .checkbox a:hover {
+  color: var(--accent-hover);
+}
+
+/* ── File inputs ── */
+.submit-card input[type="file"] {
+  padding: 10px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  background-color: var(--input-bg);
+  color: var(--text-muted);
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.submit-card input[type="file"]:hover {
+  border-color: var(--accent);
+}
+
+/* ── Full width button ── */
+.btn.full {
+  width: 100%;
+  justify-content: center;
+  padding: 12px;
+  font-size: 1rem;
+}

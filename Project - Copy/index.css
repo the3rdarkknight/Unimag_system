@@ -1,0 +1,297 @@
+
+/* HERO */
+.hero {
+    background: linear-gradient(135deg, #1a1c22 0%, #2c3e50 100%);
+    color: white;
+    padding: 56px 28px 40px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.hero h1 span {
+    color: #ff4500;
+}
+
+.hero p {
+    color: #aaa;
+    font-size: 16px;
+    margin-bottom: 28px;
+}
+
+/* ── HERO SEARCH ── */
+.hero-search {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.hero-search input {
+    flex: 1;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    font-size: 14px;
+    outline: none;
+    color: #333;
+}
+
+.hero-search button {
+    padding: 12px 20px;
+    background: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.hero-search button:hover {
+    background: #e03d00;
+}
+
+/*  GUEST FACULTY PICKER */
+.faculty-picker {
+    max-width: 500px;
+    margin: 60px auto;
+    background: #1a1c22;
+    border-radius: 12px;
+    padding: 36px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.faculty-picker i {
+    font-size: 32px;
+    color: #ff4500;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.faculty-picker h2 {
+    margin-bottom: 8px;
+    color: #e6e6e6;
+}
+
+.faculty-picker p {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.faculty-picker select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #2a2d36;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 14px;
+    color: #e6e6e6;
+    background: #2a2d36;
+}
+
+.faculty-picker select:focus {
+    outline: none;
+    border-color: #ff4500;
+}
+
+.faculty-picker button {
+    width: 100%;
+    padding: 11px;
+    background: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.faculty-picker button:hover {
+    background: #e03d00;
+}
+
+.faculty-picker .login-nudge {
+    margin-top: 16px;
+    font-size: 13px;
+    color: #aaa;
+}
+
+.faculty-picker .login-nudge a {
+    color: #ff4500;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* ── GUEST BANNER ── */
+.guest-banner {
+    background: #1e1a16;
+    border: 1px solid #5a3a1a;
+    border-radius: 8px;
+    padding: 11px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #c8a87a;
+}
+
+.guest-banner a {
+    color: #ff4500;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.guest-banner a:hover {
+    text-decoration: underline;
+}
+
+/* ── SEARCH RESULTS META ── */
+.search-meta {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 16px;
+}
+
+.search-meta a {
+    margin-left: 8px;
+    color: #ff4500;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+/* ── POST CONTENT ── */
+.post .content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+.post .content .meta {
+    font-size: 12px;
+    color: #888;
+}
+
+.post .content h2 {
+    font-size: 18px;
+    color: #e6e6e6;
+    margin: 0;
+}
+
+.post .content p {
+    font-size: 14px;
+    color: #aaa;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.post .content small {
+    font-size: 12px;
+    color: #666;
+}
+
+/* ── BANNER ── */
+.banner {
+    background: #1a1c22;
+    border-left: 4px solid #ff4500;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 16px;
+}
+
+.banner strong {
+    color: #e6e6e6;
+}
+
+.banner a {
+    color: #ff4500;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 4px;
+}
+
+/* ── RIGHTBAR CARDS ── */
+.rightbar .card h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #e6e6e6;
+}
+
+.rightbar .card p {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.6;
+    margin-bottom: 6px;
+    max-width: none;
+}
+
+.rightbar .card a.card-btn {
+    display: block;
+    margin-top: 12px;
+    padding: 8px 14px;
+    background: #ff4500;
+    color: white;
+    border-radius: 6px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+
+.rightbar .card a.card-btn:hover {
+    background: #e03d00;
+}
+
+.rightbar .card .faculty-link {
+    display: block;
+    padding: 6px 0;
+    font-size: 13px;
+    color: #aaa;
+    text-decoration: none;
+    border-bottom: 1px solid #2a2d36;
+    transition: color 0.2s;
+}
+
+.rightbar .card .faculty-link:hover {
+    color: #ff4500;
+}
+
+.rightbar .card .clear-filter {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #ff4500;
+    text-decoration: none;
+}
+
+/* ── SIDEBAR EXTRAS ── */
+.sidebar hr {
+    border: none;
+    border-top: 1px solid #2a2d36;
+    margin: 10px 0;
+}
+
+.sidebar h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #555;
+    padding: 6px 10px 4px;
+}

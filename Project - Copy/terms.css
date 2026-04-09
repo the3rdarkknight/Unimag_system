@@ -1,0 +1,135 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #000000;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Topbar styling */
+header.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #222;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+header.topbar .left {
+    display: flex;
+    align-items: center;
+}
+
+button.burger {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+
+button.burger:hover {
+    color: #ff4500;
+}
+
+header.topbar a {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    color: inherit;
+    text-decoration: none;
+}
+
+header.topbar .logo {
+    font-size: 24px;
+    margin-right: 8px;
+    color: #ff4500;
+}
+
+header.topbar .title {
+    font-weight: bold;
+}
+
+/* Container */
+.container {
+    display: flex;
+    justify-content: center; /* centers main content */
+    width: 100%;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Main content */
+main.feed {
+    background: #1f1f1f; /* less harsh than grey */
+    width: 100%;
+    max-width: 900px;
+    min-height: calc(100vh - 80px);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    overflow-y: auto;
+}
+
+/* Title */
+h1.page-title {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #ff4500;
+    text-align: center;
+}
+
+/* Terms card */
+.terms-card {
+    background: #1a1c22;
+    padding: 25px;
+    border-radius: 10px;
+    line-height: 1.6;
+    color: #d1d1d1;
+}
+
+.terms-card h3 {
+    margin-top: 20px;
+    color: #ff4500;
+    font-size: 1.3em;
+    border-bottom: 2px solid #ff4500;
+    padding-bottom: 8px;
+}
+
+.terms-card p {
+    margin-top: 10px;
+    font-size: 1em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    main.feed {
+        padding: 20px;
+        min-height: calc(100vh - 70px);
+    }
+}

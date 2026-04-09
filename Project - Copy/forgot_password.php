@@ -1,3 +1,17 @@
+
+<?php
+
+// Load Composer autoloader — vendor/ is one level up
+require_once __DIR__ . '/../vendor/autoload.php';
+
+// Load environment variables — .env is one level up
+$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
+// Load email functions — includes/ is in the same folder
+require_once __DIR__ . '/includes/email.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +21,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="style.css">
 <style>
-/* CODE INPUTS 
+/* CODE INPUTS */
 .code-inputs {
     display: flex;
     gap: 10px;

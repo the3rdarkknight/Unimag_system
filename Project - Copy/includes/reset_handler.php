@@ -1,6 +1,5 @@
 <?php
 /**
-
  * Handles all 3 steps of password reset via AJAX
  * Step 1: Verify email exists → generate OTP → send email
  * Step 2: Verify OTP code
@@ -8,6 +7,11 @@
  */
 
 if (session_status() === PHP_SESSION_NONE) session_start();
+
+// Load dotenv — vendor is TWO levels up (EWSD PROJECT (1.0)/vendor/)
+require_once __DIR__ . '/../../vendor/autoload.php';
+$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
+$dotenv->load();
 
 require_once __DIR__ . "/db.php";
 require_once __DIR__ . "/email.php";
@@ -42,9 +46,9 @@ if ($action === 'send_otp') {
     $expires = date('Y-m-d H:i:s', time() + 600); // 10 minutes
 
     // Store OTP in session (no extra DB table needed)
-    $_SESSION['reset_otp']     = $otp;
-    $_SESSION['reset_email']   = $email;
-    $_SESSION['reset_expires'] = $expires;
+    $_SESSION['reset_otp']      = $otp;
+    $_SESSION['reset_email']    = $email;
+    $_SESSION['reset_expires']  = $expires;
     $_SESSION['reset_verified'] = false;
 
     // Send OTP email using your existing emailTemplate helper
@@ -70,7 +74,7 @@ if ($action === 'send_otp') {
         "
     );
 
-    $sent = sendEmail($email, $user['name'], 'UniMag Your Password Reset Code', $body);
+    $sent = sendEmail($email, $user['name'], 'UniMag — Your Password Reset Code', $body);
 
     if ($sent) {
         echo json_encode(['success' => true, 'message' => 'Reset code sent to your email.']);
@@ -104,7 +108,7 @@ if ($action === 'verify_otp') {
     exit;
 }
 
-// STEP 3: Update Password 
+// ── STEP 3: Update Password 
 if ($action === 'reset_password') {
     if (empty($_SESSION['reset_verified']) || $_SESSION['reset_verified'] !== true) {
         echo json_encode(['success' => false, 'message' => 'Unauthorized. Please verify your code first.']);

@@ -128,6 +128,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <a href="login.php?guest=1" class="btn guest">
             <i class="fa-solid fa-eye"></i> Continue as Guest
         </a>
+          <a href="forgot_password.php" class="btn guest">
+            <i class="fa-solid fa-eye"></i> forgotten pass
+        </a>
 
         <p class="auth-footer">
             Don't have an account? <a href="register.php">Register here</a>

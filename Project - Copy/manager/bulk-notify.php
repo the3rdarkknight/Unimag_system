@@ -1,4 +1,9 @@
 <?php
+
+require_once __DIR__ . '/../../vendor/autoload.php';
+$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
+$dotenv->load();
+
 require "../includes/auth.php";
 require "../includes/db.php";
 require "../includes/email.php";

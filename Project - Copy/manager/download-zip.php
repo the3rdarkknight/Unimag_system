@@ -123,7 +123,7 @@ while ($row = $contributions->fetch_assoc()) {
 
 $zip->close();
 
-// ── Nothing was added — tell the user clearly 
+// Nothing was added tell the user clearly 
 if ($filesAdded === 0) {
     unlink($tmpFile);
     die("No files could be found on the server. "
@@ -131,7 +131,6 @@ if ($filesAdded === 0) {
 }
 
 // Stream ZIP to browser
-// Nothing must be output before these headers
 header("Content-Type: application/zip");
 header("Content-Disposition: attachment; filename=\"UniMag_Selected_Contributions.zip\"");
 header("Content-Length: " . filesize($tmpFile));

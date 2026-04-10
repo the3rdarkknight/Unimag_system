@@ -1,14 +1,14 @@
 
 <?php
 
-// Load Composer autoloader — vendor/ is one level up
+// Load Composer autoloader vendor/ is one level up
 require_once __DIR__ . '/../vendor/autoload.php';
 
-// Load environment variables — .env is one level up
+// Load environment variables .env is one level up
 $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
-// Load email functions — includes/ is in the same folder
+// Load email functions 
 require_once __DIR__ . '/includes/email.php';
 
 ?>

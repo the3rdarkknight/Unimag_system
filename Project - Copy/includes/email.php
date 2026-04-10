@@ -5,10 +5,7 @@
  * Central email helper for UniMag.
  * Uses PHPMailer with Gmail SMTP.
  *
- * SETUP:
- *   1. Run: composer require phpmailer/phpmailer
- *   2. Set your Gmail + App Password below
- *   3. Include this file wherever you need to send email
+ * 
  *
  * FUNCTIONS:
  *   sendEmail($to, $toName, $subject, $htmlBody)       — base sender
@@ -184,8 +181,8 @@ function notifyCoordinator(int $contribution_id, $conn): void {
  *
  * Called from: student/edit_contribution.php
  *
- * @param int    $contribution_id  The contribution that was updated
- * @param object $conn             MySQLi connection
+ * @param int    $contribution_id  
+ * @param object $conn             My
  */
 function notifyCoordinatorEdit(int $contribution_id, $conn): void {
 
@@ -312,7 +309,7 @@ function notifyStudent(int $contribution_id, string $commentText, $conn): void {
  * Called from: manager/bulk-notify.php
  *
  * @param string $subject   Email subject
- * @param string $message   Announcement message (plain text or HTML)
+ * @param string $message   Announcement message
  * @param object $conn      MySQLi connection
  * @return int              Number of emails sent
  */

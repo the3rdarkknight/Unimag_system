@@ -181,7 +181,7 @@ $contributions = $conn->query("
 </div>
 
 <script>
-// Inline JS — no external file, no caching, no path issues
+
 
 var form        = document.getElementById("downloadForm");
 var downloadBtn = document.getElementById("downloadZip");

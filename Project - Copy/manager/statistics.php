@@ -10,23 +10,23 @@ if ($_SESSION['role'] != 3) {
 $statsQuery = $conn->query("
     SELECT 
         f.faculty_name,
-        COUNT(c.contribution_id)                                        AS total,
-        SUM(c.status_id = 3)                                            AS selected,
-        ROUND(SUM(c.status_id = 3) / COUNT(*) * 100, 1)                AS percent_selected,
+        COUNT(c.contribution_id)      AS total,
+        SUM(c.status_id = 3)       AS selected,
+        ROUND(SUM(c.status_id = 3) / COUNT(*) * 100, 1)    AS percent_selected,
 
         -- Count contributions that have at least one comment
         SUM(
             EXISTS (
                 SELECT 1 FROM comments cm WHERE cm.contribution_id = c.contribution_id
             )
-        )                                                               AS commented,
+        )    AS commented,
 
         -- Count contributions with no comments at all
         SUM(
             NOT EXISTS (
                 SELECT 1 FROM comments cm WHERE cm.contribution_id = c.contribution_id
             )
-        )                                                               AS not_commented,
+        )     AS not_commented,
 
         -- Percentage of contributions that have been commented on
         ROUND(
@@ -35,7 +35,7 @@ $statsQuery = $conn->query("
                     SELECT 1 FROM comments cm WHERE cm.contribution_id = c.contribution_id
                 )
             ) / NULLIF(COUNT(c.contribution_id), 0) * 100
-        , 1)                                                            AS percent_commented
+        , 1)      AS percent_commented
 
     FROM faculties f
     LEFT JOIN contributions c ON c.faculty_id = f.faculty_id

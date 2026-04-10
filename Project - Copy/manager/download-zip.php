@@ -60,7 +60,7 @@ if ($contributions->num_rows === 0) {
     die("No valid selected contributions found for the given IDs.");
 }
 
-// ── Absolute paths to upload folders
+// Absolute paths to upload folders
 $articlesDir = __DIR__ . "/../uploads/articles/";
 $imagesDir   = __DIR__ . "/../uploads/images/";
 
